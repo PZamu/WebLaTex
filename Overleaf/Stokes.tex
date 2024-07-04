@@ -1,0 +1,297 @@
+\documentclass[11pt]{article}
+
+\marginparwidth 0.5in 
+\oddsidemargin 0.25in 
+\evensidemargin 0.25in 
+\marginparsep 0.25in
+\topmargin -0.1in 
+\textwidth 6in \textheight 8.1in
+
+\usepackage{upgreek}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{mathpazo}
+\usepackage{multicol}
+%\usepackage{units}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{amsthm}
+\usepackage{setspace}
+\usepackage{fancybox}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage[pdftex]{graphicx}
+\usepackage{cancel}
+\usepackage{fancyhdr}
+\usepackage{eurosym}
+\usepackage[dvips]{graphicx}
+%\usepackage{arcs}
+%\DeclareGraphicsExtensions{.png,.pdf,.jpg}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{pst-3dplot,pstricks-add}
+\usepackage{auto-pst-pdf}
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black,
+%   hyperindex,
+    breaklinks=true
+}
+\usepackage{polynom}
+\usepackage{verbatim}
+\parskip=1.5mm
+\usepackage{wrapfig}
+\usepackage{color,colortbl}
+\usepackage{yhmath}  %\widetriangle{ABC}
+%\usepackage{sagetex}
+\usepackage{polynom}
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations.markings}
+\usepackage{pgfplots}
+\usepackage[notquote]{hanging} %hangparas para sangría francesa. La opción [notquote] se puso para que no hubiera problemas a la hora de escribir derivadas en modo matemático como \(f'\) en lugar de tener que utilizar \(f^{\prime}\)
+\usepackage{qrcode}
+\usepackage{mdframed}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{titling}
+\preauthor{}
+\postauthor{}
+
+%%%%%%%Para alargar (sin engordar) símbolos de integrales
+\usepackage{scalerel}
+\def\stretchint#1{\vcenter{\hbox{\stretchto[440]{\displaystyle\int}{#1}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% \stretchint{7ex} \frac{x}{2}\, dx aumentando {7ex} estiramos hacia arriba y abajo la integral
+
+\newtheorem{thm}{Teorema}
+\newtheorem{prop}{Proposición}
+\newcommand{\mcd}{\textrm{mcd}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\la}{\lambda}
+\newcommand{\al}{\alpha}
+\newcommand{\om}{\omega}
+\newcommand{\g}{\gamma}
+\newcommand{\G}{\Gamma}
+\newcommand{\rotaF}{\nabla \times \mathbf{F}}
+\newcommand{\res}{\textrm{Res}}
+\newcommand{\ii}[2]{\int\limits_{#1}^{#2}}
+% draw a frame around given text
+\newcommand{\framedtext}[1]{%
+\par%
+\noindent\fbox{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{#1}%
+}%
+}
+%%%%%% Para no indentar notas al pie %%%%%%%
+\makeatletter
+
+\renewcommand\@makefntext[1]{%
+\setlength\parindent{1em}%
+\noindent
+\makebox[0.7em][r]{\textsuperscript{\@thefnmark}~}{#1}}
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\definecolor{verdeodi}{RGB}{53,113,105}
+\definecolor{verdeodi}{RGB}{0,122,255}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{fancybox}[1][]{
+	enhanced,
+	boxrule=1pt,arc=8pt,boxsep=0pt,
+	left=0.8em,right=0.8em,top=1ex,bottom=1ex,colback=verdeodi!20,colframe=verdeodi,#1
+}
+
+\newtcolorbox{fancybox2}[1][]{
+	enhanced,
+	boxrule=1pt,arc=8pt,boxsep=0pt,
+	left=0.8em,right=0.8em,top=1ex,bottom=1ex,colback=verdeodi!10,colframe=white,#1
+}
+
+\newtcolorbox{Box2}[2][]{
+                lower separated=false,
+                colback=white,
+colframe=verdeodi,fonttitle=\bfseries,
+colbacktitle=verdeodi,
+coltitle=white,
+enhanced,
+attach boxed title to top left={yshift=-0.1in,xshift=0.15in},
+                 boxed title style={boxrule=0pt,colframe=white,},
+title=#2,#1}
+
+
+
+\makeatletter%%%%%%%%para referenciar ecuaciones en línea
+\newcommand*{\inlineequation}[2][]{%
+  \begingroup
+    % Put \refstepcounter at the beginning, because
+    % package `hyperref' sets the anchor here.
+    \refstepcounter{equation}%
+    \ifx\\#1\\%
+    \else
+      \label{#1}%
+    \fi
+    % prevent line breaks inside equation
+    \relpenalty=10000 %
+    \binoppenalty=10000 %
+    \ensuremath{%
+      % \displaystyle % larger fractions, ...
+      #2%
+    }%
+    \hfill~\@eqnnum %%%%si quieres que aparezca al lado de la ecuación quita \hfill
+  \endgroup
+}
+\makeatother
+
+%%%%% Genera los pies de Figuras y Tablas  
+\usepackage[format=plain, labelformat=simple, labelsep=period, font={color=verdeodi,sf},labelfont=bf,centerlast]{caption}
+\renewcommand\thefigure{\arabic{figure}} % Genera numeración X
+\renewcommand\thetable{\arabic{table}} % Genera numeración X
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\title{\vspace{-20mm} Reto cálculo vectorial }
+%\author{\href{mailto:pvitoria@gmail.com}{Pablo Vitoria García}}
+\date{\today}
+
+\newenvironment{Figura}
+{\par\medskip\noindent\minipage{\linewidth}}{\endminipage\par\medskip}
+
+\newcommand\miazulbox[2][]{\tikz[overlay]\node[fill=verdeodi!10,inner xsep=2pt, inner ysep=4pt, anchor=text, rectangle, rounded corners=3pt,#1] {\ #2\ \mbox{}};\phantom{#2}}
+\usepackage{empheq}
+
+\usepackage{xparse}
+
+\newlength {\longexp} % longitud del exponente
+\newcommand{\diff}{\mathop{}\!d}
+\newcommand{\newint}[2]{\int_{\lower0.7ex\hbox{$\scriptstyle#1$}}^{\raise0.7ex\hbox{$\scriptstyle#2$}}}
+\NewDocumentCommand{\otraint}{e{^_}}
+{%
+  \mathop{}\!%
+  \int%
+  \IfValueT{#2}{_{\kern-0.2em\lower0.8ex\hbox{$\scriptstyle#2$}}}%
+  \IfValueT{#1}{^{\kern-0.0em\raise0.5ex\hbox{$\scriptstyle#1$}}\settowidth{\longexp}{$#1$}\hspace{-0.75\longexp}}%
+  \!\mathop{}%
+}
+
+
+\begin{document}
+\renewcommand{\tablename}{Tabla}
+
+\maketitle
+
+\thispagestyle{empty}
+
+
+\begin{fancybox}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %\noindent\textbf{Problema:} 
+
+    Una partícula recorre una trayectoria dada en coordenadas cartesianas por \((\cos t, \sen t, a-\cos^2 t - \sen t)\) con \(a=2\), y \(t\) desde \(0\) hasta \(2\pi\), en una región del espacio donde existe un campo de fuerzas \(\mathbf{F}(x,y,z) = (z^2-y^2, -2xy^2, e^{\sqrt{z}}\cos z)\). Calcular el trabajo realizado por la fuerza sobre la partícula a lo largo de la trayectoria.
+
+    Considerando ahora el parámetro \(a\) variable, ¿podrías calcular el trabajo realizado como función de \(a\)?
+
+\end{fancybox}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%\noindent%
+{\sf Propuesto por Pablo Vitoria García. Resuelto por Pablo Vitoria García.}
+
+%\vspace{3mm}
+
+El trabajo realizado por el campo de fuerzas (campo vectorial) \(\mathbf{F}\) a lo largo de la trayectoria dada, parametrizada por \(\g(t)=(\cos t, \sen t, a-\cos^2 t - \sen t)\) viene dado por la integral de línea del campo a lo largo de \(\g\), \(\int_{\g} \mathbf{F} \).
+
+Dada la complejidad del campo vectorial y de la trayectoria; y teniendo en cuenta que el rotacional del campo, \(\rotaF\), es mucho más simple:
+\[ \rotaF = \left( \frac{\partial F_z}{y}-\frac{\partial F_y}{z}, \frac{\partial F_x}{z}-\frac{\partial F_z}{x}, \frac{\partial F_y}{x}-\frac{\partial F_x}{y} \right) = (0, 2z,-2y^2+2y)\]
+se aplicará el \textsc{Teorema de Stokes}:
+
+
+\framedtext{
+    Sea \(S\) una superficie abierta, orientada y de clase \(C^1\) a trozos, cuya frontera, \(\partial S\), es una curva de clase \(C^1\) a trozos, simple y cerrada, con orientación positiva. Si \(\mathbf{F}\) es un campo vectorial de clase \(C^1\) en un abierto del espacio que contiene a \(S\), entonces se tiene la siguiente igualdad:
+    \[ \int_{\partial S} \mathbf{F} = \iint_{S} \rotaF \]
+}
+
+
+Comprobemos si se cumplan las condiciones necesarias para applicar el teorema.
+\begin{itemize}
+    \item El campo \( \mathbf{F}\), debido a la presencia de la raíz cuadrada en su componente \(z\), solo está definido  en el dominio abierto de \(\R^3\) con \(z>0\), donde es de clase \(C^1\).
+    \item Por tanto la trayectoria tiene que tener todos sus puntos en ese dominio para que tenga sentido calcular el trabajo.
+          Dado que la curva es acotada, el mínimo de la coordenada \(z(t)\) se obtiene para algún valor del parámetro \(t\) tal que \(z'(t)= (2 \sen t -1)\cos{t}=0\). Es decir, para \(t=\pi/6, \pi/2, 5\pi/6 \ \textrm{o}\  3\pi/2\). Basta evaluar en ellos \(z(t)\) para determinar que el valor mínimo es \(z(\pi/6)=z(\pi/6)=a-5/4\). Así que \emph{solo tiene sentido calcular el trabajo realizado si \(a>5/4\)}.
+    \item La parametrización \( \g(t)\) de la trayectoria es de clase \(C^1\). Y la trayectoria es:
+          \begin{itemize}
+              \item \emph{cerrada} (ya que \(\g(0) = \g(2 \pi)=(1,0,1)\));
+              \item y \emph{simple}, es decir, inyectiva en el intervalo \((0,2\pi)\), ya que con el cambio de variable \((x,y)=(\cos{t},\sen t)\) su expresión en cartesianas es \((x,y,a-x^2-y)\), con \((x,y)\) sobre la circunferencia \(x^2+y^2=1\). Es decir, se trata de una curva definida sobre la circunferencia unidad.
+          \end{itemize}
+    \item Por otro lado, la superficie \(S\) definida como el trozo de cilindro parabólico \footnote{Tenía que haber parametrizado la superficie como \((x,y,z)=(r \cos t,r \sen t,a- \cos^2t - \sen t)\) con \(0 < r < 1\) y \( 0 < t < 2 \pi\). Mucho más cómodo ya que se evita el uso posterior de coordenadas polares. Pero no me da tiempo a cambiarlo ahora...}: \(z=a-x^2-y\) con \((x,y) \in R\), siendo \(R\) el interior de la circunferencia \(x^2+y^2=1\) es de clase \(C^1\). Y su frontera, \(\partial S\), es la trayectoria \(\g(t)\).
+\end{itemize}
+
+Como conclusión, se puede aplicar el teorema de Stokes para calcular el trabajo.
+
+Dado que la trayectoria se recorre en sentido positivo (antihorario), la integral de superficie del rotacional de \(\mathbf{F}\) hay que realizarla a través de la cara superior de \(S\) (regla de la mano derecha, dejar la superficie a la izquierda,...). Por tanto se puede tomar como vector normal, \(\mathbf{N}\), a \(S\) al vector:
+\[\mathbf{N}=(-z'_x,-z'_y,1)= (2x,1,1)\]
+
+Y se tiene que:
+\begin{align*}
+    \int_{\g} \mathbf{F} & = \iint_{S} \rotaF = \iint_{R} (\rotaF)(S) \cdot \mathbf{N} \ dxdy                         \\
+                         & = \iint_{R} (0,2(a-x^2-y),-2y^2-2y) \cdot (2x,1,1)\ dxdy = \iint_{R} (2a-2x^2-2y^2) \ dxdy
+\end{align*}
+Introduciendo coordenadas polares \((x,y)=(\rho \cos \theta, \rho \sen \theta)\), con jacobiano \(\rho\), se tiene que la región \(R\) viene definida por \(0<\rho<1,\quad 0<\theta<2 \pi\):
+\begin{align*}
+    \int_{\g} \mathbf{F} = \int_0^{2 \pi} \int_0^1 (a- \rho^2) 2\rho\ d\rho d\theta = -\pi \left[(a-\rho^2)^2\right]_0^1=(2a-1)\pi
+\end{align*}
+
+
+Como conclusión, el trabajo realizado por el campo \(\mathbf{F}\) a lo largo de esa trayectoria es:
+\framedtext{
+    \[(2a-1) \pi \quad \textrm{para}\quad a > \frac{5}{4}\]
+}
+\end{document}
+
+
+
+\begin{align} \label{finv}
+    f(0) & \sim \mathcal{F}^{-1}[F](t)=\frac{1}{2\pi}\ii{-\infty}{\infty}F(x)\ \mathrm{e}^{i0x}\ dx= \frac{1}{2\pi}\ii{-\infty}{\infty}F(x) (\cos(tx)+i\sen(tx))\ dx \notag                                             \\
+         & =\frac{1}{2\pi}\ii{-\infty}{\infty}F(x) \cos(tx)\ dx + \underbrace{\frac{i}{2\pi}\ii{-\infty}{\infty}F(x) \sen(tx)\ dx}_{0, F(x) \sen(tx) \textrm{ es impar}} = \frac{1}{\pi}\ii{0}{\infty}F(x) \cos(tx)\ dx
+\end{align}
+
+donde en el último paso se ha usado que \(F(x) \cos(tx)\) es par con respecto a \(x\).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
